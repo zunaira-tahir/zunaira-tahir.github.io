@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zunaira Tahir — Python & Machine Learning Developer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --navy: #10243D;
+    --navy-soft: #1C3A5E;
+    --paper: #F6F5F1;
+    --paper-dim: #EAE8E2;
+    --brass: #A9793D;
+    --ink: #1A1D22;
+    --ink-soft: #5B6470;
+    --line: #D8D5CC;
+    --max: 760px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  header.nav{
+    position: sticky; top:0;
+    background: rgba(246,245,241,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+  header.nav .wrap{
+    display:flex; justify-content: space-between; align-items:center;
+    padding-top: 16px; padding-bottom: 16px;
+    max-width: 900px;
+  }
+  .nav-name{ font-family:'Fraunces',serif; font-size:1.05rem; color:var(--navy); font-weight:600; }
+  .nav-links{ display:flex; gap:26px; font-size: 0.92rem; }
+  .nav-links a{ text-decoration:none; color: var(--ink-soft); border-bottom: 1px solid transparent; padding-bottom:2px; }
+  .nav-links a:hover{ color: var(--navy); border-color: var(--brass); }
+  .nav-links a:focus-visible, a:focus-visible{ outline: 2px solid var(--brass); outline-offset: 3px; }
+
+  /* HERO */
+  .hero{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 88px 28px 64px;
+  }
+  .hero .kicker{
+    font-size: 0.95rem;
+    color: var(--brass);
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    max-width: 16ch;
+  }
+  .hero .role{
+    margin-top: 22px;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+  .hero .stats{
+    display:flex;
+    gap: 48px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .stat .n{ font-family:'Fraunces',serif; font-size: 2rem; color: var(--navy); }
+  .stat .l{ font-size: 0.85rem; color: var(--ink-soft); margin-top: 2px; }
+
+  section{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 28px;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom: 40px;
+    gap: 20px;
+  }
+  .section-head h2{ font-size: 1.6rem; }
+  .section-head .count{ font-size: 0.85rem; color: var(--ink-soft); white-space:nowrap; }
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .about-grid p{ color: var(--ink-soft); max-width: 60ch; }
+  .about-grid .lede{ color: var(--ink); font-size: 1.08rem; }
+
+  .stack-list{
+    list-style:none; padding:0; margin: 18px 0 0;
+    display:flex; flex-wrap:wrap; gap: 10px 14px;
+  }
+  .stack-list li{
+    font-size: 0.9rem;
+    color: var(--navy-soft);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--brass);
+  }
+
+  /* PROJECTS as rows, not cards */
+  .project{
+    display:grid;
+    grid-template-columns: 44px 1fr;
+    gap: 20px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .project:last-child{ border-bottom:none; padding-bottom:0; }
+  .project:first-child{ padding-top: 0; }
+  .project .idx{
+    font-family:'Fraunces',serif;
+    color: var(--line);
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .project h3{ font-size: 1.15rem; }
+  .project .desc{ color: var(--ink-soft); margin-top: 8px; max-width: 58ch; }
+  .project .meta{
+    display:flex; gap: 18px; margin-top: 14px; flex-wrap: wrap;
+    font-size: 0.85rem; color: var(--brass);
+  }
+  .project .meta a{ text-decoration:none; border-bottom: 1px solid var(--brass); }
+  .project .meta a:hover{ color: var(--navy); border-color: var(--navy); }
+  .project .tech{ color: var(--ink-soft); font-size: 0.85rem; margin-top: 10px; }
+
+  /* EDUCATION */
+  .edu{
+    display:grid;
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .edu:last-child{ border-bottom: none; }
+  .edu:first-child{ padding-top: 0; }
+  .edu .when{ color: var(--ink-soft); font-size: 0.88rem; padding-top: 3px; }
+  .edu h3{ font-size: 1.02rem; }
+  .edu .org{ color: var(--brass); font-size: 0.92rem; margin-top: 2px; }
+  .edu p{ color: var(--ink-soft); margin-top: 8px; }
+
+  /* CONTACT */
+  .contact h2{ font-size: 1.75rem; max-width: 18ch; }
+  .contact p{ color: var(--ink-soft); margin-top: 14px; max-width: 50ch; }
+  .contact-links{
+    display:flex; gap: 30px; margin-top: 30px; flex-wrap:wrap;
+  }
+  .contact-links a{
+    text-decoration:none;
+    font-size: 0.95rem;
+    color: var(--navy);
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--brass);
+  }
+  .contact-links a:hover{ color: var(--brass); }
+
+  footer{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 28px 60px;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 640px){
+    .nav-links{ gap: 16px; font-size: 0.85rem; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .edu{ grid-template-columns: 1fr; gap: 6px; }
+    .hero{ padding-top: 56px; }
+    .stats{ gap: 30px !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-name">Zunaira Tahir</div>
+    <nav class="nav-links">
+      <a href="#work">Projects</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="kicker">Python &amp; Machine Learning Developer</div>
+  <h1>I turn raw data into models that actually explain something.</h1>
+  <p class="role">AI student in Bahawalpur, Punjab, building a portfolio of practical Python and ML projects — from text classification and RAG chatbots to LLM-driven automation pipelines.</p>
+  <div class="stats">
+    <div class="stat"><div class="n">3.90</div><div class="l">CGPA, BS Artificial Intelligence</div></div>
+    <div class="stat"><div class="n">4+</div><div class="l">ML/AI projects shipped</div></div>
+    <div class="stat"><div class="n">2026</div><div class="l">expected graduation</div></div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="section-head">
+    <h2>Projects</h2>
+    <div class="count">5 projects</div>
+  </div>
+
+  <div class="project">
+    <div class="idx">01</div>
+    <div>
+      <h3>News Topic Classifier using BERT</h3>
+      <p class="desc">Fine-tuned a BERT transformer to classify news articles by topic, achieving strong accuracy on a labelled dataset. Handled text preprocessing, tokenization, and hyperparameter tuning, validating on a held-out test set.</p>
+      <div class="tech">Python · BERT · Transformers · PyTorch</div>
+      <div class="meta">
+        <a href="https://drive.google.com/file/d/1uPdOFcRJ9NhSsascggMth3xcG9Jl2gGE/view?usp=sharing" target="_blank" rel="noopener">Open in Colab</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="idx">02</div>
+    <div>
+      <h3>Context-Aware Chatbot using LangChain (RAG)</h3>
+      <p class="desc">Built a retrieval-augmented chatbot with LangChain that answers questions from a custom knowledge base. Implemented document chunking, vector-store retrieval, and grounded prompt chaining.</p>
+      <div class="tech">Python · LangChain · RAG · Vector Store</div>
+      <div class="meta">
+        <a href="#">Open in Colab</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="idx">03</div>
+    <div>
+      <h3>Auto-Tagging of Support Tickets using LLM</h3>
+      <p class="desc">Developed an LLM pipeline that automatically labels support tickets, cutting manual triage time. Designed prompt engineering and structured output parsing for consistent category tags.</p>
+      <div class="tech">Python · LLM · Prompt Engineering</div>
+      <div class="meta">
+        <a href="#">Open in Colab</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="idx">04</div>
+    <div>
+      <h3>Urdu Cyberbullying Detection using EasyOCR &amp; MobileNetV3</h3>
+      <p class="desc">Built a pipeline that extracts Urdu text from images with EasyOCR and detects cyberbullying with MobileNetV3. Preprocessed Urdu text, augmented the dataset, and evaluated precision and recall.</p>
+      <div class="tech">Python · EasyOCR · MobileNetV3 · Computer Vision</div>
+      <div class="meta">
+        <a href="https://drive.google.com/file/d/16c2hoAti0sFj0ZTntISY9mnDKaLFwZpT/view?usp=sharing" target="_blank" rel="noopener">Open in Colab</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="idx">05</div>
+    <div>
+      <h3>Telco Customer Churn Pipeline</h3>
+      <p class="desc">End-to-end machine learning pipeline to predict customer churn for a telecom dataset, covering data cleaning, feature engineering, model training, and evaluation.</p>
+      <div class="tech">Python · Pandas · Scikit-learn</div>
+      <div class="meta">
+        <a href="https://drive.google.com/file/d/16AyiP6-5K3WowbGJGFpLsxGeJg7VwPii/view?usp=sharing" target="_blank" rel="noopener">Open in Colab</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="idx">06</div>
+    <div>
+      <h3>Data Scraping Automation</h3>
+      <p class="desc">Automation pipeline for scraping and structuring web data, reducing manual data-collection effort for downstream ML projects.</p>
+      <div class="tech">Python · Web Scraping · Automation</div>
+      <div class="meta">
+        <a href="https://github.com/zunaira-tahir/Automation.git" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-head">
+    <h2>About</h2>
+  </div>
+  <div class="about-grid">
+    <p class="lede">I'm an Artificial Intelligence student with hands-on experience in Python programming and machine learning. I like building practical, data-driven solutions — from data preprocessing and feature engineering through to training and evaluating models.</p>
+    <div>
+      <p>I'm currently developing a portfolio of Python and AI/ML projects, with a strong foundation in problem-solving and project development. Based in Bahawalpur, Punjab, Pakistan.</p>
+      <ul class="stack-list">
+        <li>Python</li><li>Machine Learning</li><li>Artificial Intelligence</li><li>Data Preprocessing &amp; Analysis</li><li>LangChain</li><li>LLMs</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-head">
+    <h2>Education</h2>
+  </div>
+
+  <div class="edu">
+    <div class="when">Jan 2022 — Jul 2026</div>
+    <div>
+      <h3>BS Artificial Intelligence</h3>
+      <div class="org">Government Sadiq College Women University, Bahawalpur</div>
+      <p>CGPA: 3.90</p>
+    </div>
+  </div>
+
+  <div class="edu">
+    <div class="when">Apr 2020 — May 2022</div>
+    <div>
+      <h3>Intermediate (Pre-Engineering)</h3>
+      <div class="org">Moon Girls College, Bahawalpur</div>
+      <p>934 / 1100</p>
+    </div>
+  </div>
+
+  <div class="edu">
+    <div class="when">Apr 2018 — Apr 2020</div>
+    <div>
+      <h3>Matriculation</h3>
+      <div class="org">APSACS, Bahawalpur</div>
+      <p>1034 / 1100</p>
+    </div>
+  </div>
+
+  <div class="edu">
+    <div class="when">Oct 2024</div>
+    <div>
+      <h3>Artificial Intelligence Projects</h3>
+      <div class="org">Great Learning Academy — Course</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Let's build something with data.</h2>
+  <p>Open to internships and entry-level roles in Python development, machine learning, and AI. Based in Bahawalpur, Punjab — happy to work remote.</p>
+  <div class="contact-links">
+    <a href="mailto:zunairatahir717@gmail.com">zunairatahir717@gmail.com</a>
+    <a href="https://github.com/zunaira-tahir" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Zunaira Tahir. Built with plain HTML and CSS.
+</footer>
+
+</body>
+</html>
